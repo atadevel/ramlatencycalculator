@@ -5,17 +5,28 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        Console.Write("Cas Latency (CL) hizini giriniz: ");
-        int cas = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("RAM latency calculator");
+    start:
+        Console.WriteLine("-------------------------------------------------------------");
 
-        Console.Write("Megatransfer(Mt/s) hizini giriniz: ");
-        int megatransfer = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Cas Latency (CL): ");
+        float cas = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Megatransfer(MT/s): ");
+        float megatransfer = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine(calclatency(megatransfer, cas));
+        Console.WriteLine("Ram Latency in nanoseconds = " + calclatency(megatransfer, cas));
+        Console.WriteLine("");
+        Console.WriteLine("Press R to do another calculation");
+
+        var keyInfo = Console.ReadKey(true);
+        if (keyInfo.Key == ConsoleKey.R)
+            goto start;
+
+
     }
-    private static double calclatency(int megatransfer ,int cas)
+    private static double calclatency(float megatransfer, float cas)
     {
-        double latency = cas *2000/megatransfer;
+        float latency = cas * 2000 / megatransfer;
         return latency;
 
     }
