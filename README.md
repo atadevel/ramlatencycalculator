@@ -1,0 +1,4 @@
+CALCULATES THE LATENCY OF YOUR RAM IN NANOSECONDS
+
+Formula is : 
+cas * 2000 / megatransfer
