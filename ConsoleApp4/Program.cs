@@ -17,10 +17,13 @@ internal class Program
         Console.WriteLine("Ram Latency in nanoseconds = " + calclatency(megatransfer, cas));
         Console.WriteLine("");
         Console.WriteLine("Press R to do another calculation");
-
+        restart:
         var keyInfo = Console.ReadKey(true);
         if (keyInfo.Key == ConsoleKey.R)
             goto start;
+        else
+            Console.WriteLine("Please press R");
+        goto restart;
 
 
     }
